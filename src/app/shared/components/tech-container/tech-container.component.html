@@ -1,0 +1,38 @@
+<div class="tech-container">
+    <ul>
+        <li *ngFor="let techItem of techItems">
+            <a href="">
+                <div class="parent">
+                    <div class="shadow"></div>
+                    <img [src]="techItem.imagePath" alt="">
+                </div>
+                <div class="content">
+                    <div class="name">
+                        {{ techItem.name }}
+                    </div>
+                    <div class="favorite {{ techItem.favorite? '' : 'not' }}">
+                        ❤
+                    </div>
+                    <star-rating 
+                        [value]="techItem.stars" 
+                        [totalstars]="5" 
+                        checkedcolor="red" 
+                        uncheckedcolor="black" 
+                        size="18px" 
+                        [readonly]="true">
+                    </star-rating>
+                    <div class="tech-item-footer">
+                        <div class="origins">
+                            <span>
+                                {{ techItem.origins }}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="price">
+                        {{ techItem.price | currency }}
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
