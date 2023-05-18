@@ -22,6 +22,8 @@ export class TechContainerComponent implements OnInit {
     this.route.params.subscribe(params => {
       if (params.searchTerm)
         this.techItems = this.techService.getAllProd().filter(techItem => techItem.name.toLocaleLowerCase().includes(params.searchTerm.toLocaleLowerCase()))
+      if(params.tag)
+        this.techItems = this.techService.getAllItemsByTag(params.tag);
       else
         this.techItems = this.techService.getAllProd();
     })
