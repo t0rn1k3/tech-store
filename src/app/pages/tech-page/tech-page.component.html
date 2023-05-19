@@ -1,0 +1,26 @@
+<div class="tech-page-container">
+    <img [src]="techItem.imagePath" [alt]="techItem.name"  />
+    <div class="details">
+        <div class="header">
+            <span class="name "> {{ techItem.name }}</span>
+            <span class="favorite {{ techItem.favorite? '' : 'not' }}">❤</span>
+        </div>
+        <div class="rating">
+            <star-rating 
+                [value]="techItem.stars" 
+                [totalstars]="5" 
+                checkedcolor="red" 
+                uncheckedcolor="black" 
+                size="30px" 
+                [readonly]="true">
+            </star-rating>
+        </div>
+        <div class="origin">
+            {{ techItem.origins }}
+        </div>
+        <div class="price">
+            {{ techItem.price | currency }}
+        </div>
+    </div>
+    <button>add to cart</button>
+</div>
