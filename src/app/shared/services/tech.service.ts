@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TechItemsInterface } from '../interfaces/tech-items.interface';
+import { TagInterface } from '../interfaces/tag.inteeface';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,32 @@ import { TechItemsInterface } from '../interfaces/tech-items.interface';
 export class TechService {
 
   constructor() { }
+
+  getAllTags(): TagInterface[] {
+    return  [
+      {name : 'All', count : 6},
+      {name : 'Bluetooth & Wireless Speakers', count : 2},
+      {name : 'Video Games', count : 2},
+      {name : 'Computers', count : 2},
+      {name : 'Tablets', count : 1},
+      {name : 'Cell Phones', count : 1},
+    ]
+  }
+
+  getTechById(id : number) : TechItemsInterface {
+    //@ts-ignore
+    return this.getAllProd().find(tech => tech.id == id)
+  }
+
+  getAllItemsBySearchTerm(searchTerm : string): TechItemsInterface[] {
+    return this.getAllProd().filter(techItem => techItem.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()))
+  }
+
+  getAllItemsByTag(tag: string) : TechItemsInterface[] {
+    return tag == 'All' ?
+    this.getAllProd() :
+    this.getAllProd().filter(item => item.tags?.includes(tag));
+  }
 
   getAllProd():TechItemsInterface[] {
     return [
@@ -25,7 +52,7 @@ export class TechService {
         name : 'Nintendo Game Boy Advance',
         price : 199,
         imagePath: '/assets/images/gba.jpg',
-        tags : ['Video Games'],
+        tags : ['Video Games', 'Computers'],
         stars : 4.4,
         favorite : false,
         origins : 'Japan'
