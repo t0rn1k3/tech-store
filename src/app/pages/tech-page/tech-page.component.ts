@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TechItemsInterface } from 'src/app/shared/interfaces/tech-items.interface';
+import { CartService } from 'src/app/shared/services/cart.service';
 import { TechService } from 'src/app/shared/services/tech.service';
 
 @Component({
@@ -15,7 +16,9 @@ export class TechPageComponent implements OnInit {
 
   constructor(
     private activatedRoute : ActivatedRoute,
-    private techService : TechService
+    private techService : TechService,
+    private cartService : CartService,
+    private router : Router
   ) {
     activatedRoute.params.subscribe((params) => {
       if (params.id)
@@ -25,6 +28,11 @@ export class TechPageComponent implements OnInit {
 
   ngOnInit(): void {
     
+  }
+
+  addToCart(){
+    this.cartService.addToCart(this.techItem)
+    this.router.navigateByUrl('/cart')
   }
 
 }
