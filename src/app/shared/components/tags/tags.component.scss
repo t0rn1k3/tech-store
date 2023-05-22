@@ -1,0 +1,21 @@
+@import 'src/assets/styles/colors.scss';
+
+
+.tags {
+    width: 850px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px auto;
+}
+a {
+    text-decoration: none;
+    background-color: $color-4;
+    padding: 10px;
+    border-radius: 20px;
+    color: $color-1;
+    transition: .3s;
+}
+a:hover {
+    background-color: $color-3;
+}

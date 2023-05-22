@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { TechItemsInterface } from '../interfaces/tech-items.interface';
-import { TagInterface } from '../interfaces/tag.inteeface';
+import { Tech } from '../models/Tech';
+import { Tag } from '../models/Tag';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ export class TechService {
 
   constructor() { }
 
-  getAllTags(): TagInterface[] {
+  getAllTags(): Tag[] {
     return  [
       {name : 'All', count : 6},
       {name : 'Bluetooth & Wireless Speakers', count : 2},
@@ -20,22 +20,22 @@ export class TechService {
     ]
   }
 
-  getTechById(id : number) : TechItemsInterface {
+  getTechById(id : number) : Tech {
     //@ts-ignore
     return this.getAllProd().find(tech => tech.id == id)
   }
 
-  getAllItemsBySearchTerm(searchTerm : string): TechItemsInterface[] {
+  getAllItemsBySearchTerm(searchTerm : string): Tech[] {
     return this.getAllProd().filter(techItem => techItem.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()))
   }
 
-  getAllItemsByTag(tag: string) : TechItemsInterface[] {
+  getAllItemsByTag(tag: string) : Tech[] {
     return tag == 'All' ?
     this.getAllProd() :
     this.getAllProd().filter(item => item.tags?.includes(tag));
   }
 
-  getAllProd():TechItemsInterface[] {
+  getAllProd():Tech[] {
     return [
       {
         id : 1,
@@ -45,7 +45,7 @@ export class TechService {
         tags : ['Bluetooth & Wireless Speakers'],
         stars : 4.2,
         favorite : false,
-        origins : 'Usa'
+        origins : ['Usa']
       },
       {
         id : 2,
@@ -55,7 +55,7 @@ export class TechService {
         tags : ['Video Games', 'Computers'],
         stars : 4.4,
         favorite : false,
-        origins : 'Japan'
+        origins : ['Japan']
       },
       {
         id : 3,
@@ -65,7 +65,7 @@ export class TechService {
         tags : ['Computers', 'Tablets'],
         stars : 5,
         favorite : false,
-        origins : 'Usa'
+        origins : ['Usa']
       },
       {
         id : 4,
@@ -75,7 +75,7 @@ export class TechService {
         tags : ['Bluetooth & Wireless Speakers'],
         stars : 4.6,
         favorite : false,
-        origins : 'UK'
+        origins : ['UK']
       },
       {
         id : 5,
@@ -85,7 +85,7 @@ export class TechService {
         tags : ['Cell Phones'],
         stars : 4.5,
         favorite : false,
-        origins : 'South Korea'
+        origins : ['South Korea']
       },
       {
         id : 6,
@@ -95,7 +95,7 @@ export class TechService {
         tags : ['Video Games'],
         stars : 4,
         favorite : false,
-        origins : 'Usa'
+        origins : ['Usa']
       },
     ]
   }

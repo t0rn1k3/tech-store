@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TechItemsInterface } from 'src/app/shared/interfaces/tech-items.interface';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { TechService } from 'src/app/shared/services/tech.service';
 
@@ -12,7 +11,7 @@ import { TechService } from 'src/app/shared/services/tech.service';
 export class TechPageComponent implements OnInit {
 
   //@ts-ignore
-  techItem : TechItemsInterface;
+  techItem : Tech;
 
   constructor(
     private activatedRoute : ActivatedRoute,

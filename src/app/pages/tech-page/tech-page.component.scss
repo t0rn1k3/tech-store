@@ -1,0 +1,29 @@
+@import 'src/assets/styles/colors';
+
+.tech-page-container {
+    width: 60%;
+    margin: 30px;
+}
+img {
+    width: 450px;
+    height: 450px;
+
+}
+.details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $color-4
+}
+.price {
+    font-size: 23px;
+    color: $color-4;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.name {
+    font-size: 18px;
+}
+.favorite {
+    margin-left: 10px;
+}

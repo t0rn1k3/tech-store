@@ -14,7 +14,9 @@ export class CartPageComponent implements OnInit {
   cart : Cart
   constructor(
     private cartService : CartService
-  ){}
+  ){
+    this.setCart()
+  }
 
   removeFromCart(cartItem : CartItem){
     this.cartService.removeFromCart(cartItem.tech.id)

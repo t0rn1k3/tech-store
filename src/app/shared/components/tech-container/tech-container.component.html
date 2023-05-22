@@ -1,7 +1,7 @@
 <div class="tech-container">
     <ul>
         <li *ngFor="let techItem of techItems">
-            <a href="">
+            <a routerLink="/tech-items/{{ techItem.id }}">
                 <div class="parent">
                     <div class="shadow"></div>
                     <img [src]="techItem.imagePath" alt="">
@@ -16,8 +16,8 @@
                     <star-rating 
                         [value]="techItem.stars" 
                         [totalstars]="5" 
-                        checkedcolor="red" 
-                        uncheckedcolor="black" 
+                        checkedcolor="#FFFBEB" 
+                        uncheckedcolor="#495579" 
                         size="18px" 
                         [readonly]="true">
                     </star-rating>

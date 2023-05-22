@@ -1,3 +1,5 @@
+@import 'src/assets/styles/colors.scss';
+
 .tech-container {
     width: 80%;
     margin: 20px auto;
@@ -8,6 +10,12 @@ ul {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+li {
+    border-radius: 8px;
+    background-color: $color-4;
+    margin: 10px 0;
+    
+}
 a {
     display: block;
     width: 250px;
@@ -15,6 +23,7 @@ a {
     margin: 10px;
     position: relative;
     transition: .3s;
+    color: $color-1;
 }
 img {
     width: 100%;
@@ -27,11 +36,22 @@ img {
     height: 100%;
 }
 a:hover .shadow {
-    background-color: rgba(0,0,0, 0.3);
+    background-color: rgba($color-4, 0.3);
 }
 .parent {
     position: relative;
     width: 250px;
     height: 250px;
     object-fit: cover;
+}
+.origins {
+    font-size: 12px;
+}
+.price {
+    font-size: 17px;
+    padding: 15px 0 7px;
+}
+.name {
+    font-size: 17px;
+    padding: 15px 0 15px;
 }

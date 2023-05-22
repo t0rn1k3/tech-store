@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TechService } from '../../services/tech.service';
-import { TechItemsInterface } from '../../interfaces/tech-items.interface';
 import { ActivatedRoute } from '@angular/router';
+import { Tech } from '../../models/Tech';
 
 @Component({
   selector: 'app-tech-container',
@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class TechContainerComponent implements OnInit {
 
 
-  techItems : TechItemsInterface[] =[];
+  techItems : Tech[] =[];
 
   constructor(
     private techService: TechService,
@@ -21,7 +21,7 @@ export class TechContainerComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       if (params.searchTerm)
-        this.techItems = this.techService.getAllProd().filter(techItem => techItem.name.toLocaleLowerCase().includes(params.searchTerm.toLocaleLowerCase()))
+        this.techItems = this.techService.getAllItemsBySearchTerm(params.searchTerm);
       if(params.tag)
         this.techItems = this.techService.getAllItemsByTag(params.tag);
       else

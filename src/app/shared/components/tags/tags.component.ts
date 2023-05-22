@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TagInterface } from '../../interfaces/tag.inteeface';
 import { TechService } from '../../services/tech.service';
+import { Tag } from '../../models/Tag';
 
 @Component({
   selector: 'app-tags',
@@ -9,7 +9,7 @@ import { TechService } from '../../services/tech.service';
 })
 export class TagsComponent implements OnInit {
 
-  tags : TagInterface[] = []
+  tags : Tag[] = []
   constructor(
     private techService : TechService
   ) {}
