@@ -1,0 +1,15 @@
+@import 'src/assets/styles/colors.scss';
+
+.button {
+    outline: none;
+    background-color: $color-4;
+    color: $color-1;
+    border: 0;
+    padding: 7px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .3s;
+}
+.button:hover {
+    background-color: $color-3;
+}
