@@ -20,10 +20,15 @@ img {
     color: $color-4;
     font-weight: bold;
     margin-bottom: 15px;
+    text-align: center;
 }
 .name {
     font-size: 18px;
 }
 .favorite {
     margin-left: 10px;
+}
+.add-to-cart {
+    display: flex;
+    flex-direction: column;
 }

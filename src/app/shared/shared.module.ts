@@ -7,13 +7,17 @@ import { TechContainerComponent } from './components/tech-container/tech-contain
 import { RatingModule } from "ng-starrating";
 import { SearchComponent } from './components/search/search.component';
 import { TagsComponent } from './components/tags/tags.component';
+import { ButtonComponent } from './components/button/button.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
     declarations: [
       HeaderComponent,
       TechContainerComponent,
       SearchComponent,
-      TagsComponent
+      TagsComponent,
+      ButtonComponent,
+      NotFoundComponent
   ],
     imports : [ 
       CommonModule,
@@ -25,7 +29,9 @@ import { TagsComponent } from './components/tags/tags.component';
       HeaderComponent,
       TechContainerComponent,
       SearchComponent,
-      TagsComponent
+      TagsComponent,
+      ButtonComponent,
+      NotFoundComponent
     ],
     providers : [
 

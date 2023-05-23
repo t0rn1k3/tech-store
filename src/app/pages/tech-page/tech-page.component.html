@@ -1,3 +1,6 @@
+<app-not-found [visible]="!techItem" notFoundMessage="Product Not Found!"
+resetLinkText="Back To Homepage"></app-not-found>
+
 <div class="tech-page-container">
     <div class="details">
         <div>
@@ -21,11 +24,11 @@
                 {{ techItem.origins }}
             </div>
         </div>
-        <div>
+        <div class="add-to-cart">
             <div class="price">
                 {{ techItem.price | currency }}
             </div>
-            <button (click)="addToCart()">add to cart</button>
+            <app-button (click)="addToCart()" [btnWidth]="'250px'" [text]="'Add To Cart'"></app-button>
         </div>
     </div>
     

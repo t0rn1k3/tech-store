@@ -1,39 +1,45 @@
-<div class="cart">
+<app-not-found [visible]="!cart || cart.items.length <=0"
+notFoundMessage="Cart Is Empty!"
+resetLinkText="Go To Homepage"
+>
+</app-not-found>
+
+<div class="cart" *ngIf="cart && cart.items.length > 0" >
     <ul>
         <li *ngFor="let cartItem of cart.items">
             <div class="cart-img">
                 <img [src]="cartItem.tech.imagePath" [alt]="cartItem.tech.name">
             </div>
             <div>
-                <a routerLink="/tech-items/{{cartItem.tech.id}}">
+                <a class="name" routerLink="/tech-items/{{cartItem.tech.id}}">
                     {{cartItem.tech.name}}
                 </a>
             </div>
 
             <div>
-                <select #quantitySelect (change)="changeQuantity(cartItem,quantitySelect.value)">
+                <select class="select" #quantitySelect (change)="changeQuantity(cartItem,quantitySelect.value)">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
                     <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
                 </select>
             </div>
 
-            <div>
+            <div class="price">
                 {{cartItem.price | currency}}
             </div>
 
             <div>
-                <button class="remove-button" (click)="removeFromCart(cartItem)">
-                    Remove
-                </button>
+                <app-button (click)="removeFromCart(cartItem)" [btnWidth]="'80px'" [text]="'Remove'" ></app-button>
             </div>
         </li>
     </ul>
     <div>
         <div>
-            <div>{{ cart.items.length }}</div>
-            <div>{{ cart.totalPrice | currency }}</div>
+            <div class="cart-item-length">{{ cart.items.length }}</div>
+            <div class="total"> Total : {{ cart.totalPrice | currency }}</div>
         </div>
     </div>
